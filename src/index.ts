@@ -2,25 +2,63 @@ export {}
 
 declare global {
   interface Window {
-    ExampleElement: typeof ExampleElement
+    HTMXToastsElement: typeof HTMXToastsElement
   }
   interface HTMLElementTagNameMap {
-    'example-element': ExampleElement
+    'htmx-toasts': HTMXToastsElement
   }
 }
 
-export class ExampleElement extends HTMLElement {
+type Level = 'info' | 'warn' | 'error'
+type Code = number
+type Message = string
+
+type Notify = {
+  message: Message
+  level: Level
+  code: Code
+}
+
+type Notification = {
+  id: number
+  message: Message
+  level: Level
+  code: Code
+}
+
+export class HTMXToastsElement extends HTMLElement {
   constructor() {
     super()
   }
 
-  connectedCallback() {
-    this.textContent = 'Hello, World!'
+  notifications = new Array<Notification>()
+
+  connectedCallback(): void {
+    window.addEventListener('htmx-toasts:notify', ((e: CustomEvent<Notify>) => this._handleNotify(e)) as EventListener)
+  }
+
+  private _handleNotify(e: CustomEvent<Notify>): void {
+    const notifcation = {id: e.timeStamp, ...e.detail}
+    this.notifications.push(notifcation)
+    setTimeout(() => this._remove(notifcation), 3000)
+    // this.requestUpdate();
+  }
+
+  private _remove(n: Notification): void {
+    this.notifications = this.notifications.filter(i => i.id !== n.id)
+  }
+
+  disconnectedCallback(): void {
+    window.removeEventListener('htmx-toasts:notify', ((e: CustomEvent<Notify>) =>
+      this._handleNotify(e)) as EventListener)
   }
 }
 
-customElements.define('example-element', ExampleElement)
+if (!window.customElements.get('htmx-toasts')) {
+  window.HTMXToastsElement = HTMXToastsElement
+  window.customElements.define('htmx-toats', HTMXToastsElement)
+}
 
 export const defineExampleElement = () => {
-  customElements.define('example-element', ExampleElement)
+  customElements.define('htmx-toasts', HTMXToastsElement)
 }

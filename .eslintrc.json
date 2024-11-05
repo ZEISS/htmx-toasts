@@ -1,6 +1,10 @@
 {
   "root": true,
-  "extends": ["plugin:github/browser", "plugin:github/recommended", "plugin:github/typescript"],
+  "extends": [
+    "plugin:github/browser",
+    "plugin:github/recommended",
+    "plugin:github/typescript"
+  ],
   "globals": {
     "ExampleElement": "readonly"
   },
