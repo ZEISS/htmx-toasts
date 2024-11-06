@@ -16,8 +16,14 @@ This is a simple HTMX element that can be used to display toasts in your web app
     <button type="button" class="btn btn-sm btn-outline" aria-label="Close" slot="close">Close</button>
   </div>
 </template>
-<htmx-toasts timeout="3000" class="toast" role="status" aria-live="polite" error-class="alert-error"
-      info-class="alert-info" warn-class="alert-warning"></htmx-toasts>
+<htmx-toasts
+  timeout="3000"
+  class="toast"
+  role="status"
+  aria-live="polite"
+  error-class="alert-error"
+  info-class="alert-info"
+  warn-class="alert-warning"></htmx-toasts>
 ```
 
 ## Attributes
@@ -30,7 +36,7 @@ This is a simple HTMX element that can be used to display toasts in your web app
 ## Installation
 
 ```bash
-npm install @htmx/template-element
+npm install @htmx/htmx-toast
 ```
 
 Use as a module in your application:
