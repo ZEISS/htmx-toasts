@@ -6,7 +6,7 @@
     "plugin:github/typescript"
   ],
   "globals": {
-    "ExampleElement": "readonly"
+    "HTMXToastsElement": "readonly"
   },
   "overrides": [
     {

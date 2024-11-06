@@ -7,6 +7,31 @@
 
 This is a simple HTMX element that can be used to display toasts in your web application.
 
+## Usage
+
+```html
+<template id="htmx-toasts-template">
+  <div class="alert" slot="alert">
+    <span slot="message"></span>
+    <button type="button" class="btn btn-sm btn-outline" aria-label="Close" slot="close">Close</button>
+  </div>
+</template>
+<htmx-toasts timeout="3000" class="toast" role="status" aria-live="polite" error-class="alert-error"
+      info-class="alert-info" warn-class="alert-warning"></htmx-toasts>
+```
+
+## Installation
+
+```bash
+npm install @htmx/template-element
+```
+
+```html
+<script src="https://unpkg.com/@htmx/htmx-toasts@latest/dist/index.js" type="module"></script>
+```
+
+```bash
+
 ## License
 
 [MIT](/LICENSE)

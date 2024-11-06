@@ -1,13 +1,22 @@
 <!doctype html>
-<html>
-  <head>
-    <title>example-element examples</title>
-    <link href="https://unpkg.com/fiber-htmx@1.3.32/dist/out.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container py-4">
-      <example-element></example-element>
-    </div>
+<html data-theme="light">
+
+<head>
+  <title>htmx-toasts examples</title>
+  <link href="https://unpkg.com/fiber-htmx@1.3.32/dist/out.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container py-4">
+    <template id="htmx-toasts-template">
+      <div class="alert" slot="alert">
+        <span slot="message"></span>
+        <button type="button" class="btn btn-sm btn-outline" aria-label="Close" slot="close">Close</button>
+      </div>
+    </template>
+    <htmx-toasts timeout="10000" class="toast" role="status" aria-live="polite" error-class="alert-error"
+      info-class="alert-info" warn-class="alert-warning"></htmx-toasts>
+    <button class="btn" onclick="notify()">Notify</button>
     <script>
       const script = document.createElement('script')
       if (window.location.hostname.endsWith('github.io') || window.location.hostname.endsWith('github.com')) {
@@ -18,5 +27,16 @@
       script.type = 'module'
       document.body.appendChild(script)
     </script>
-  </body>
+    <script>
+      function notify() {
+        window.dispatchEvent(new CustomEvent('htmx-toasts:notify', {
+          detail: {
+            message: 'Hello, World!',
+            level: 'error'
+          }
+        }))
+      }
+    </script>
+</body>
+
 </html>

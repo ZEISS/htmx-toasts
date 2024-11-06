@@ -2,7 +2,7 @@ import {fixture, html} from '@open-wc/testing-helpers'
 import {HTMXToastsElement} from './index'
 import {describe, it, expect, beforeEach} from 'vitest'
 
-describe('example-element', () => {
+describe('htmx-toasts', () => {
   let element: HTMXToastsElement
 
   beforeEach(async () => {
