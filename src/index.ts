@@ -54,8 +54,6 @@ export class HTMXToastsElement extends HTMLElement {
   notifications = new Array<Notification>()
 
   connectedCallback(): void {
-    window.addEventListener('htmx-toasts:notify', ((e: CustomEvent<Notify>) => this.addToast(e)) as EventListener)
-
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'alert')
     }
@@ -75,6 +73,8 @@ export class HTMXToastsElement extends HTMLElement {
     styles.href = 'https://unpkg.com/fiber-htmx@1.3.32/dist/out.css'
     styles.type = 'text/css'
     this.shadowRoot?.appendChild(styles)
+
+    window.addEventListener('htmx-toasts:notify', ((e: CustomEvent<Notify>) => this.addToast(e)) as EventListener)
   }
 
   disconnectedCallback(): void {

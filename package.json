@@ -1,6 +1,6 @@
 {
   "name": "@htmx/htmx-toasts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple toast notification system for htmx",
   "repository": "zeiss/htmx-toasts",
   "type": "module",
