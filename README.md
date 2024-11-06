@@ -33,6 +33,8 @@ This is a simple HTMX element that can be used to display toasts in your web app
 npm install @htmx/template-element
 ```
 
+Use as a module in your application:
+
 ```html
 <script src="https://unpkg.com/@htmx/htmx-toasts@latest/dist/index.js" type="module"></script>
 ```
