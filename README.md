@@ -20,6 +20,13 @@ This is a simple HTMX element that can be used to display toasts in your web app
       info-class="alert-info" warn-class="alert-warning"></htmx-toasts>
 ```
 
+## Attributes
+
+- `timeout` - The time in milliseconds that the toast will be displayed.
+- `error-class` - The class to apply to the toast when it is an error.
+- `info-class` - The class to apply to the toast when it is an info message.
+- `warn-class` - The class to apply to the toast when it is a warning.
+
 ## Installation
 
 ```bash
@@ -29,8 +36,6 @@ npm install @htmx/template-element
 ```html
 <script src="https://unpkg.com/@htmx/htmx-toasts@latest/dist/index.js" type="module"></script>
 ```
-
-```bash
 
 ## License
 
