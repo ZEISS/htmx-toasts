@@ -39,7 +39,7 @@
     "tsc-watch": "^6.2.0",
     "typescript": "^5.6.3",
     "vite": "^6.0.4",
-    "vitest": "^2.1.4"
+    "vitest": "^3.0.1"
   },
   "eslintIgnore": [
     "dist/"
