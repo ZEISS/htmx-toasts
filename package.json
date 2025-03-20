@@ -33,7 +33,7 @@
     "@types/jest": "^29.5.14",
     "construct-style-sheets-polyfill": "^3.1.0",
     "eslint": "^8.6.0",
-    "eslint-plugin-github": "^5.0.2",
+    "eslint-plugin-github": "^6.0.0",
     "http-server": "^14.1.1",
     "jsdom": "^25.0.1",
     "tsc-watch": "^6.2.0",
